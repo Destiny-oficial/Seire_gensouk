@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>seire gensouk - Capítulo 1</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #1a1a1a;
+      text-align: center;
+      border-bottom: 2px solid #333;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    .navigation button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .navigation button:hover {
+      background-color: #444;
+    }
+
+    .manga-pages {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      padding-bottom: 50px;
+    }
+
+    .manga-pages img {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📘 Seire gensouk - Capítulo 1</h1>
+  </header>
+
+  <div class="navigation">
+    
+    <button onclick="cambiarCapitulo()">📖 Elegir capítulo</button>
+    <button onclick="location.href='cap2.html'">Siguiente capítulo ➡</button>
+  </div>
+
+  <div class="manga-pages" id="mangaPages"></div>
+
+  <footer>
+    <p>Anime Offis - Todos los derechos reservados © 2025</p>
+  </footer>
+
+  <script>
+    const totalPaginas = 64; // 🔁 Cambia este número si tienes más/menos páginas
+    const rutaBase = "https://destiny-oficial.github.io/Seire_gensouk/";
+    const nombreBase = "Seirei_Genso_01-06_page-";
+
+    const contenedor = document.getElementById("mangaPages");
+
+    for (let i = 1; i <= totalPaginas; i++) {
+      let numero = i.toString().padStart(4, '0'); // genera 0001, 0002, etc.
+      let url = `${rutaBase}${nombreBase}${numero}.jpg`;
+
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = `Página ${i}`;
+      contenedor.appendChild(img);
+    }
+    function cambiarCapitulo() {
+    const capitulo = prompt("Escribe el número de capítulo que deseas ver:");
+    if (capitulo) {
+      // Redirige al nuevo capítulo, puedes cambiar la ruta base según tu estructura
+      window.location.href = `cap${capitulo}.html`;
+    }
+  }
+  </script>
+
+</body>
+</html>
